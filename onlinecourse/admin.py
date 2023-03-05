@@ -17,6 +17,7 @@ class ChoiceInline(admin.StackedInline):
     model = Choice
     extra = 5
 
+
 # Register your models here.
 class CourseAdmin(admin.ModelAdmin):
     inlines = [LessonInline]

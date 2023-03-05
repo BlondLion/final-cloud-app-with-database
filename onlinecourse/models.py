@@ -97,8 +97,8 @@ class Enrollment(models.Model):
 #Question model
 class Question(models.Model):
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
-    question_text = models.CharField(null=False, max_length=250, default="Question")
-    mark = models.IntegerField(null=False, default=0)
+    text = models.CharField(null=True, max_length=200, default="Question")
+    mark = models.IntegerField(null=True, default=0)
     course = models.ManyToManyField(Course)
 
     def is_get_score(self, selected_ids):
@@ -112,7 +112,7 @@ class Question(models.Model):
 #Choice Model
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
+    choice_text = models.CharField(max_length=200, null=True)
     is_correct = models.BooleanField(default=False)
 
 

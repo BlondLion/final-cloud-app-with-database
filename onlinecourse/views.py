@@ -119,7 +119,7 @@ def submit(request, course_id):
     answers = extract_answers(request)
 
     for answer in answers:
-        Choice = Choice.objects.filter(id = int(answer)).get()
+        choice = Choice.objects.filter(id = int(answer)).get()
         submission.choices.add(choice)
 
     submission.save()
